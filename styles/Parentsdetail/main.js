@@ -36,8 +36,8 @@ export const styles = ({ width, height }) =>
     fieldwrapper: {
       alignItems: "center",
       justifyContent: "space-evenly",
-      height: getPercent(60, height),
-      marginVertical: 15,
+      height: getPercent(65, height),
+      marginVertical: 10,
     },
     btnwrapper: {
       height: getPercent(25, height),

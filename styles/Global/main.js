@@ -2,6 +2,22 @@ import { Platform, StatusBar, StyleSheet } from "react-native";
 import { RFValue as rf } from "react-native-responsive-fontsize";
 import { getPercent } from "../../middleware";
 
+export const Subscriptionheaderstyles = ({ width, height }) =>
+  StyleSheet.create({
+    simpleheader: {
+      flexDirection: "row",
+      alignItems: "center",
+      paddingHorizontal: getPercent(5, width),
+      justifyContent: "space-between",
+      height: getPercent(10, height),
+    },
+    headertitle: {
+      fontFamily: "Medium",
+      fontSize: rf(16),
+      color: "#3B3B3B",
+    },
+  });
+
 export const Tabmenustyles = ({ width, height }) =>
   StyleSheet.create({
     container: {
@@ -72,6 +88,89 @@ export const Homeheaderstyles = ({ width, height }) =>
     },
   });
 
+export const Createnewpostheaderstyles = ({ width, height }) =>
+  StyleSheet.create({
+    container: {
+      width: getPercent(100, width),
+      height: getPercent(10, height),
+      flexDirection: "row",
+
+      backgroundColor: "#fff",
+      // paddingHorizontal: getPercent(5, width),
+      paddingLeft: getPercent(5, width),
+      alignItems: "center",
+    },
+
+    fixedcirclebody: {
+      height: getPercent(25, height),
+      width: getPercent(25, height),
+      overflow: "hidden",
+      backgroundColor: "#F9F7F7",
+      borderRadius: 100,
+      position: "absolute",
+      right: getPercent(-18, width),
+      top: getPercent(-10, height),
+      flexDirection: "row",
+      alignItems: "center",
+      padding: 10,
+    },
+    msgiconbody: {
+      height: getPercent(5, height),
+      width: getPercent(5, height),
+      overflow: "hidden",
+      backgroundColor: "#DBE2EF",
+      borderRadius: 10,
+      justifyContent: "center",
+      alignItems: "center",
+      margin: 5,
+      marginTop: getPercent(5, height),
+    },
+    logobody: {
+      height: getPercent(5, height),
+      width: getPercent(5, height),
+      overflow: "hidden",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    titletext: {
+      fontFamily: "SemiBold",
+      fontSize: rf(16),
+      color: "#3F72AF",
+      marginLeft: 10,
+    },
+  });
+
+export const Searchheaderstyles = ({ width, height }) =>
+  StyleSheet.create({
+    container: {
+      width: getPercent(100, width),
+      height: getPercent(11, height),
+      flexDirection: "row",
+
+      backgroundColor: "#fff",
+      paddingHorizontal: getPercent(5, width),
+      paddingLeft: getPercent(5, width),
+      justifyContent: "space-between",
+      alignItems: "flex-end",
+    },
+    searchbarbody: {
+      height: getPercent(6, height),
+      width: getPercent(80, width),
+      borderRadius: 10,
+      backgroundColor: "#DBE2EF",
+      flexDirection: "row",
+      alignItems: "center",
+      paddingHorizontal: 10,
+    },
+    input: {
+      width: "90%",
+      fontFamily: "Regular",
+      fontSize: rf(13),
+      color: "#656565",
+      marginLeft: 10,
+    },
+  });
+
 export const standardfieldstyles = ({ width, height }) =>
   StyleSheet.create({
     container: {
@@ -97,7 +196,7 @@ export const standardButtonStyles = ({ width, height }) =>
       height: getPercent(8, height),
       width: getPercent(90, width),
       backgroundColor: "#FD4E4E",
-      borderRadius: 20,
+      borderRadius: 100,
       shadowColor: "#000",
       shadowOffset: {
         width: 5,
@@ -153,9 +252,9 @@ export const Headerstyles = ({ width, height }) =>
     },
     steptext: {
       fontFamily: "Regular",
-      fontSize: rf(12),
+      fontSize: rf(11),
       color: "#AAB2B7",
-      paddingLeft: getPercent(5, width),
+      paddingHorizontal: getPercent(5, width),
     },
     fixedcirclebody: {
       height: getPercent(20, height),

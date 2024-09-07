@@ -6,6 +6,7 @@ import {
   Image,
   ScrollView,
   TextInput,
+  Pressable,
 } from "react-native";
 import { connect } from "react-redux";
 import { styles as _styles } from "../../../styles/Home/Post";
@@ -13,12 +14,13 @@ import { useState } from "react";
 import { FontAwesome, Entypo, FontAwesome5 } from "@expo/vector-icons";
 
 const Post = (props) => {
-  let { postcontent, name, time, likes, comments } = props;
+  let { postcontent, name, time, likes, comments, onCommentpress, onPress } =
+    props;
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
 
   return (
-    <View style={styles.container}>
+    <Pressable onPress={onPress} style={styles.container}>
       <View style={styles.posternamewrapper}>
         <View style={styles.profilepicbody}></View>
         <View style={{ flex: 1, paddingLeft: 10 }}>
@@ -39,12 +41,12 @@ const Post = (props) => {
           <FontAwesome name="heart" size={18} color="#fff" />
           <Text style={styles.likestext}>{likes}</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.commentbutton}>
+        <TouchableOpacity onPress={onCommentpress} style={styles.commentbutton}>
           <FontAwesome5 name="comment" size={18} color="#3B3B3B" />
           <Text style={styles.commenttext}>{comments}</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

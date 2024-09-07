@@ -19,6 +19,33 @@ import Editprofile from "../screens/Editprofile/Editprofile";
 import Notifications from "../screens/Notifications/Notifications";
 import Chatlist from "../screens/Chatlist/Chatlist";
 import Chatpage from "../screens/Chatpage/Chatpage";
+import Createnewpost from "../screens/Createnewpost/Createnewpost";
+import Comments from "../screens/Comments/Comments";
+import Search from "../screens/Search/Search";
+import Myfollowers from "../screens/Myfollowers/Myfollowers";
+import Discover from "../screens/Discover/Discover";
+import Professtionalprofile from "../screens/Professionalprofile/Professtionalprofile";
+import Myprofile from "../screens/Myprofile/Myprofile";
+import Editsubscription from "../screens/Editsubscription/Editsubscription";
+import Dashboard from "../screens/Dashboard/Dashboard";
+import Creator from "../screens/Creator/Creator";
+import Suppoerter from "../screens/Supporter/Suppoerter";
+import Donationsummary from "../screens/Dobationsummary/Donationsummary";
+import Donationsummary2 from "../screens/Donationsummary2/Donationsummary2";
+import Thankuforsupport from "../screens/Thankuforsupport/Thankuforsupport";
+import Menu from "../screens/Menu/Menu";
+import Postfullscreen from "../screens/Postfullscreen/Postfullscreen";
+import Albums from "../screens/Albums/Albums";
+import Favouratealbum from "../screens/Favouratealbum/Favouratealbum";
+import Terms from "../screens/Terms/Terms";
+import Socials from "../screens/Socials/Socials";
+import Affiliates from "../screens/Affiliates/Affiliates";
+import Scanme from "../screens/Scanme/Scanme";
+import Supervision from "../screens/Supervision/Supervision";
+import Guardian from "../screens/Guardian/Guardian";
+import Scedule from "../screens/Scedule/Scedule";
+import Balance from "../screens/Balance/Balance";
+import Bankdetails from "../screens/Bankdetails/Bankdetails";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -43,6 +70,33 @@ function AppNavigation() {
       <Screen name="Notifications" component={Notifications} />
       <Screen name="Chatlist" component={Chatlist} />
       <Screen name="Chatpage" component={Chatpage} />
+      <Screen name="Createnewpost" component={Createnewpost} />
+      <Screen name="Comments" component={Comments} />
+      <Screen name="Search" component={Search} />
+      <Screen name="Myfollowers" component={Myfollowers} />
+      <Screen name="Discover" component={Discover} />
+      <Screen name="Professionalprofile" component={Professtionalprofile} />
+      <Screen name="Myprofile" component={Myprofile} />
+      <Screen name="Editsubscription" component={Editsubscription} />
+      <Screen name="Dashboard" component={Dashboard} />
+      <Screen name="Creator" component={Creator} />
+      <Screen name="Supporter" component={Suppoerter} />
+      <Screen name="Donationsummary" component={Donationsummary} />
+      <Screen name="Donationsummary2" component={Donationsummary2} />
+      <Screen name="Thankuforsupport" component={Thankuforsupport} />
+      <Screen name="Menu" component={Menu} />
+      <Screen name="Postfullscreen" component={Postfullscreen} />
+      <Screen name="Albums" component={Albums} />
+      <Screen name="Favouratealbum" component={Favouratealbum} />
+      <Screen name="Terms" component={Terms} />
+      <Screen name="Socials" component={Socials} />
+      <Screen name="Affiliates" component={Affiliates} />
+      <Screen name="Scanme" component={Scanme} />
+      <Screen name="Supervision" component={Supervision} />
+      <Screen name="Guardian" component={Guardian} />
+      <Screen name="Scedule" component={Scedule} />
+      <Screen name="Balance" component={Balance} />
+      <Screen name="Bankdetails" component={Bankdetails} />
     </Navigator>
   );
 }

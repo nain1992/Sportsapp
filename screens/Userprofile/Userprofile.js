@@ -40,7 +40,13 @@ const Userprofile = (props) => {
             CEO of Sports{"\n"}I’m lucky and blessed.{"\n"}Hello, I’m Adnan!
           </Text>
         </View>
-        <Postandfollowers posts={"40"} followers={"404"} following={"333"} />
+        <Postandfollowers
+          onPress={() => props?.navigation?.navigate("Myfollowers")}
+          onPressFollowing={() => props?.navigation?.navigate("Myfollowers")}
+          posts={"40"}
+          followers={"404"}
+          following={"333"}
+        />
         <StandardButton
           customStyles={styles.btnbody}
           title={"Edit Profile"}

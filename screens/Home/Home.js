@@ -53,6 +53,8 @@ const Home = (props) => {
                 }
                 likes={"70 Likes"}
                 comments={"125 Comments"}
+                onCommentpress={() => props?.navigation?.navigate("Comments")}
+                onPress={() => props?.navigation?.navigate("Postfullscreen")}
               />
             );
           })}

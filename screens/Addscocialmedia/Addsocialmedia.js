@@ -17,6 +17,8 @@ const Addsocialmedia = (props) => {
   let {} = props;
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
+  const data = data?.route?.params;
+  console.log(data);
 
   let accounts = [
     {

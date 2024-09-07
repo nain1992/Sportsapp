@@ -7,10 +7,6 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 import { Homeheaderstyles } from "../styles/Global/main";
-import { Ionicons, Entypo } from "@expo/vector-icons";
-import { RFValue as rf } from "react-native-responsive-fontsize";
-import { LinearGradient } from "expo-linear-gradient";
-import { getPercent } from "../middleware";
 
 const Homeheader = (props) => {
   let { title } = props;
@@ -31,7 +27,7 @@ const Homeheader = (props) => {
           />
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => props?.navigation?.navigate("Chatlist")}
+          onPress={() => props?.navigation?.navigate("Menu")}
           style={[
             styles.msgiconbody,
             {

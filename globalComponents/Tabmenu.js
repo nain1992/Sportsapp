@@ -18,10 +18,12 @@ const Tabmenu = (props) => {
 
   let Menuicons = [
     { icon: require("../assets/icons/6.png"), screen: "Home" },
-    { icon: require("../assets/icons/7.png"), screen: "Profile" },
-    { icon: require("../assets/icons/8.png"), screen: "Settings" },
+    { icon: require("../assets/icons/7.png"), screen: "Discover" },
+    // { icon: require("../assets/icons/7.png"), screen: "Search" },
+    { icon: require("../assets/icons/8.png"), screen: "Createnewpost" },
     { icon: require("../assets/icons/9.png"), screen: "Notifications" },
     { icon: require("../assets/icons/10.png"), screen: "Userprofile" },
+    // { icon: require("../assets/icons/10.png"), screen: "Professionalprofile" },
   ];
 
   const handlePress = (screen) => {

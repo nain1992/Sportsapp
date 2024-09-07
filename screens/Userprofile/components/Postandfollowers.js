@@ -13,26 +13,26 @@ import { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 
 const Postandfollowers = (props) => {
-  let { posts, followers, following } = props;
+  let { posts, followers, following, onPress, onPressFollowing } = props;
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
 
   return (
     <View style={styles.container}>
-      <View style={styles.postbody}>
+      <TouchableOpacity style={styles.postbody}>
         <Text style={styles.numofposts}>{posts}</Text>
         <Text style={styles.poststext}>Posts</Text>
-      </View>
+      </TouchableOpacity>
       <View style={styles.borderbody}></View>
-      <View style={styles.postbody}>
+      <TouchableOpacity onPress={onPressFollowing} style={styles.postbody}>
         <Text style={styles.numofposts}>{following}</Text>
         <Text style={styles.poststext}>Following</Text>
-      </View>
+      </TouchableOpacity>
       <View style={styles.borderbody}></View>
-      <View style={styles.postbody}>
+      <TouchableOpacity onPress={onPress} style={styles.postbody}>
         <Text style={styles.numofposts}>{followers}</Text>
         <Text style={styles.poststext}>Followers</Text>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
