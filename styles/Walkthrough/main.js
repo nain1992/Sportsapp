@@ -16,7 +16,7 @@ export const styles = ({ width, height }) =>
     },
     welcometext: {
       fontFamily: "Bold",
-      fontSize: rf(32),
+      fontSize: rf(26),
       color: "#F6F5EE",
     },
     circlewrapper: {

@@ -11,17 +11,33 @@ import { connect } from "react-redux";
 import { styles as _styles } from "../../../styles/Scedule/Postnewcontent";
 import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
+import DateTimePicker from "@react-native-community/datetimepicker";
 
 const Postnewcontent = (props) => {
-  let { image } = props;
+  let { image, onPress, OnVideoPress, onLocationPress, onVoicePress } = props;
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
-  let icons = [
-    require("../../../assets/icons/18.png"),
-    require("../../../assets/icons/Video.png"),
-    require("../../../assets/icons/Location.png"),
-    require("../../../assets/icons/Voice.png"),
-  ];
+
+  // State for managing date and time
+  const [date, setDate] = useState(new Date());
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const [showTimePicker, setShowTimePicker] = useState(false);
+  const [scheduleDate, setScheduleDate] = useState("");
+  const [scheduleTime, setScheduleTime] = useState("");
+
+  // Function to handle date change
+  const onDateChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShowDatePicker(false);
+    setScheduleDate(currentDate.toDateString());
+  };
+
+  // Function to handle time change
+  const onTimeChange = (event, selectedTime) => {
+    const currentTime = selectedTime || date;
+    setShowTimePicker(false);
+    setScheduleTime(currentTime.toLocaleTimeString());
+  };
 
   return (
     <View style={styles.container}>
@@ -34,34 +50,81 @@ const Postnewcontent = (props) => {
           />
         </View>
         <TextInput style={styles.input} {...props} />
+
+        {/* Date Picker */}
         <View style={styles.parentsdetailswrapper}>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Scedule Date"
-            keyboardType="decimal-pad"
-          />
+          <TouchableOpacity onPress={() => setShowDatePicker(true)}>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter Schedule Date"
+              value={scheduleDate}
+              editable={false}
+            />
+          </TouchableOpacity>
+          {showDatePicker && (
+            <DateTimePicker
+              value={date}
+              mode="date"
+              display="default"
+              onChange={onDateChange}
+            />
+          )}
         </View>
+
+        {/* Time Picker */}
         <View style={styles.parentsdetailswrapper}>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Scedule Time"
-            keyboardType="decimal-pad"
-          />
+          <TouchableOpacity onPress={() => setShowTimePicker(true)}>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter Schedule Time"
+              value={scheduleTime}
+              editable={false}
+            />
+          </TouchableOpacity>
+          {showTimePicker && (
+            <DateTimePicker
+              value={date}
+              mode="time"
+              display="default"
+              onChange={onTimeChange}
+            />
+          )}
         </View>
       </View>
+
       <View style={styles.postbtnwrapper}>
         <View style={styles.iconswrapper}>
-          {icons?.map((item, index) => {
-            return (
-              <TouchableOpacity key={index} style={styles.posticonsbody}>
-                <Image
-                  source={item}
-                  style={{ height: "50%", width: "50%" }}
-                  resizeMode="contain"
-                />
-              </TouchableOpacity>
-            );
-          })}
+          <TouchableOpacity onPress={onPress} style={styles.posticonsbody}>
+            <Image
+              source={require("../../../assets/icons/18.png")}
+              style={{ height: "50%", width: "50%" }}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={OnVideoPress} style={styles.posticonsbody}>
+            <Image
+              source={require("../../../assets/icons/Video.png")}
+              style={{ height: "50%", width: "50%" }}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={onLocationPress}
+            style={styles.posticonsbody}
+          >
+            <Image
+              source={require("../../../assets/icons/Location.png")}
+              style={{ height: "50%", width: "50%" }}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={onVoicePress} style={styles.posticonsbody}>
+            <Image
+              source={require("../../../assets/icons/Voice.png")}
+              style={{ height: "50%", width: "50%" }}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
         </View>
         <TouchableOpacity style={styles.postbtnbody}>
           <LinearGradient

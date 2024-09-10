@@ -40,8 +40,8 @@ export const styles = ({ width, height }) =>
       justifyContent: "space-between",
     },
     postpictures: {
-      height: getPercent(22, height),
-      width: getPercent(22, height),
+      height: getPercent(20, height),
+      width: getPercent(42, width),
       overflow: "hidden",
       borderRadius: 10,
 
@@ -82,5 +82,27 @@ export const styles = ({ width, height }) =>
       fontSize: rf(11),
       color: "#3B3B3B",
       marginLeft: 10,
+    },
+    editbody: {
+      height: getPercent(10, height),
+      width: getPercent(30, width),
+      borderRadius: 10,
+      backgroundColor: "#fff",
+      position: "absolute",
+      zIndex: 1,
+      right: 15,
+      top: getPercent(5, height),
+      justifyContent: "space-between",
+      alignItems: "center",
+      padding: 10,
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+
+      elevation: 5,
     },
   });

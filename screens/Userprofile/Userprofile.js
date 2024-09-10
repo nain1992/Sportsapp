@@ -24,8 +24,16 @@ const Userprofile = (props) => {
   const [isselected, setIsselected] = useState(0);
   let options = ["Photos", "Videos", "Tags"];
 
+  const [isvideovisible, setisVideovisible] = useState(true);
+
   const handleselection = (item, index) => {
+    console.log(item);
     setIsselected(item);
+    if (item != "Videos") {
+      setisVideovisible(true);
+    } else {
+      setisVideovisible(false);
+    }
   };
 
   return (
@@ -73,11 +81,19 @@ const Userprofile = (props) => {
             );
           })}
         </View>
-        <View style={styles.postswrapper}>
-          {[1, 1, 1, 1, 1]?.map((item, index) => {
-            return <View key={index} style={styles.postbody}></View>;
-          })}
-        </View>
+        {isvideovisible ? (
+          <View style={styles.postswrapper}>
+            {[1, 1, 1, 1, 1]?.map((item, index) => {
+              return <View key={index} style={styles.postbody}></View>;
+            })}
+          </View>
+        ) : (
+          <View style={styles.postswrapper}>
+            {[1, 1, 1, 1, 1]?.map((item, index) => {
+              return <View key={index} style={styles.videobody}></View>;
+            })}
+          </View>
+        )}
       </ScrollView>
       <Tabmenu />
     </View>

@@ -27,11 +27,11 @@ export const styles = ({ width, height }) =>
       alignItems: "center",
       paddingHorizontal: getPercent(5, width),
       flexWrap: "wrap",
-      //   justifyContent: "center",
+      justifyContent: "center",
     },
     albumbody: {
       height: getPercent(14, height),
-      width: getPercent(14, height),
+      width: getPercent(25, width),
       borderRadius: 10,
       backgroundColor: "#DBE2EF",
       margin: 3,

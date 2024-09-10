@@ -19,6 +19,7 @@ import Menuoptions from "./components/Menuoptions";
 import { getPercent } from "../../middleware";
 import * as Sharing from "expo-sharing";
 import * as FileSystem from "expo-file-system";
+import Menuheader from "../../globalComponents/Menuheader";
 
 const Menu = (props) => {
   let {} = props;
@@ -39,7 +40,8 @@ const Menu = (props) => {
 
   return (
     <View style={styles.container}>
-      <Homeheader title={"Menu"} navigation={props?.navigation} />
+      {/* <Homeheader title={"Menu"} navigation={props?.navigation} /> */}
+      <Menuheader title={"Menu"} onPress={() => props?.navigation?.goBack()} />
       <ScrollView
         style={{ marginBottom: getPercent(10, height) }}
         showsVerticalScrollIndicator={false}

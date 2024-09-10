@@ -23,14 +23,26 @@ export const styles = ({ width, height }) =>
     },
     contentwrapper: {
       flexDirection: "row",
-      alignItems: "center",
+      // alignItems: "center",
       paddingHorizontal: getPercent(5, width),
       flexWrap: "wrap",
       justifyContent: "space-between",
     },
     albumbody: {
       height: getPercent(21, height),
-      width: getPercent(21, height),
+      width: getPercent(41, width),
+      borderRadius: 10,
+      backgroundColor: "#DBE2EF",
+    },
+    photobody: {
+      height: getPercent(15, height),
+      width: getPercent(28, width),
+      borderRadius: 10,
+      backgroundColor: "#DBE2EF",
+    },
+    videobody: {
+      height: getPercent(15, height),
+      width: getPercent(90, width),
       borderRadius: 10,
       backgroundColor: "#DBE2EF",
     },

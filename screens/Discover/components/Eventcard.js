@@ -20,7 +20,7 @@ const Eventcard = (props) => {
   let styles = _styles({ width, height });
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <View style={styles.picturebody}></View>
       <View style={styles.details}>
         <Text style={styles.title}>Fanmeet with Pelican Steve</Text>
@@ -39,7 +39,7 @@ const Eventcard = (props) => {
           <Text style={styles.locationtext}>34 people participants</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

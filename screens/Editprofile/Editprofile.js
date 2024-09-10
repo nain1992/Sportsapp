@@ -15,20 +15,42 @@ import Homeheader from "../../globalComponents/Homeheader";
 import Standardfield from "../../globalComponents/Standardfield";
 import Field from "./components/Field";
 import StandardButton from "../../globalComponents/StandardButton";
+import * as ImagePicker from "expo-image-picker";
 
 const Editprofile = (props) => {
   let {} = props;
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
+  const [image, setImage] = useState(null);
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Photos,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
+    }
+  };
 
   return (
     <View style={styles.container}>
       <Homeheader title={"Profile"} navigation={props?.navigation} />
       <View style={styles.profilewrapper}>
-        <View style={styles.profilepicbody}></View>
-        <TouchableOpacity style={styles.uploadbtn}>
+        <View style={styles.profilepicbody}>
+          {image ? (
+            <Image source={{ uri: image }} style={styles.image} />
+          ) : null}
+        </View>
+
+        <TouchableOpacity onPress={pickImage} style={styles.uploadbtn}>
           <Image
-            source={require("../../assets/icons/11.png")}
+            source={require("../../assets/icons/1.png")}
             style={{ height: "50%", width: "50%" }}
             resizeMode="contain"
           />
@@ -44,6 +66,7 @@ const Editprofile = (props) => {
         <StandardButton
           customStyles={{ backgroundColor: "#3F72AF" }}
           title={"Update"}
+          onPress={() => props?.navigation?.navigate("Professionalprofile")}
         />
       </View>
     </View>

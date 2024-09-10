@@ -12,6 +12,8 @@ import { styles as _styles } from "../../styles/Notifications/main";
 import { useState } from "react";
 import { FontAwesome } from "@expo/vector-icons";
 import Homeheader from "../../globalComponents/Homeheader";
+import Tabmenu from "../../globalComponents/Tabmenu";
+import { getPercent } from "../../middleware";
 
 const Notifications = (props) => {
   let {} = props;
@@ -21,11 +23,14 @@ const Notifications = (props) => {
   return (
     <View style={styles.container}>
       <Homeheader title={"Notifications"} navigation={props?.navigation} />
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        style={{ marginBottom: getPercent(10, height) }}
+        showsVerticalScrollIndicator={false}
+      >
         <Text style={styles.daytext}>Yesterday</Text>
         {[2, 2]?.map((item, index) => {
           return (
-            <View key={index} style={styles.detailswrapper}>
+            <TouchableOpacity key={index} style={styles.detailswrapper}>
               <View style={styles.innerwrapper}>
                 <View style={styles.posterpicbody}></View>
                 <View style={{ flex: 1, paddingLeft: 10 }}>
@@ -38,17 +43,23 @@ const Notifications = (props) => {
                 <Text style={styles.activity}>12 min ago</Text>
               </View>
               <View style={styles.postthumbnailwrapper}>
-                <View style={styles.thumbnailbody}></View>
-                <View style={styles.thumbnailbody}></View>
-                <View style={styles.thumbnailbody}></View>
+                <TouchableOpacity
+                  style={styles.thumbnailbody}
+                ></TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.thumbnailbody}
+                ></TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.thumbnailbody}
+                ></TouchableOpacity>
               </View>
-            </View>
+            </TouchableOpacity>
           );
         })}
         <Text style={styles.daytext}>This Week</Text>
         {[2, 2, 2]?.map((item, index) => {
           return (
-            <View key={index} style={styles.detailswrapper}>
+            <TouchableOpacity key={index} style={styles.detailswrapper}>
               <View style={styles.innerwrapper}>
                 <View style={styles.posterpicbody}></View>
                 <View style={{ flex: 1, paddingLeft: 10 }}>
@@ -64,10 +75,11 @@ const Notifications = (props) => {
                 Lorem ipsum dolor sit amet, con sectetur adipiscing elit.
                 Quisque interdum blandit ipsum.
               </Text>
-            </View>
+            </TouchableOpacity>
           );
         })}
       </ScrollView>
+      <Tabmenu />
     </View>
   );
 };

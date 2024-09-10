@@ -8,14 +8,14 @@ import {
   TextInput,
 } from "react-native";
 import { connect } from "react-redux";
-import { styles as _styles } from "../../styles/Balance/main";
+import { styles as _styles } from "../../styles/Balancehistory/main";
 import { useState } from "react";
 import { Ionicons, Feather } from "@expo/vector-icons";
 import Homeheader from "../../globalComponents/Homeheader";
 import Tabmenu from "../../globalComponents/Tabmenu";
 import StandardButton from "../../globalComponents/StandardButton";
 
-const Balance = (props) => {
+const Balancehistory = (props) => {
   let {} = props;
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
@@ -32,65 +32,47 @@ const Balance = (props) => {
       >
         <Ionicons name="chevron-back" size={20} color="#AAB2B7" />
       </TouchableOpacity>
-      <Text style={styles.signuptext}>Current Month</Text>
-      <View style={styles.wrapper}>
-        <View style={styles.currentbalance}>
-          <View style={styles.iconbody}>
-            <Image
-              source={require("../../assets/icons/down.png")}
-              style={{ height: "50%", width: "50%" }}
-              resizeMode="contain"
-            />
+      <Text style={styles.signuptext}>Past Payment History</Text>
+      <View style={styles.mainwrapper}>
+        <View style={styles.wrapper}>
+          <View style={styles.currentbalance}>
+            <View style={styles.iconbody}>
+              <Image
+                source={require("../../assets/icons/down.png")}
+                style={{ height: "50%", width: "50%" }}
+                resizeMode="contain"
+              />
+            </View>
+            <Text style={styles.balancetext}>Money in</Text>
           </View>
-          <Text style={styles.balancetext}>Current Balance</Text>
-        </View>
-        <View style={styles.amount}>
-          <Text style={styles.amounttext}>£3,500</Text>
-        </View>
-      </View>
-      <View style={styles.wrapper}>
-        <View style={styles.currentbalance}>
-          <View
-            style={[
-              styles.iconbody,
-              {
-                backgroundColor: "rgba(221, 80, 80, 0.37)",
-              },
-            ]}
-          >
-            <Image
-              source={require("../../assets/icons/up.png")}
-              style={{ height: "50%", width: "50%" }}
-              resizeMode="contain"
-            />
+          <View style={styles.amount}>
+            <Text style={styles.amounttext}>£3000</Text>
           </View>
-          <Text style={styles.balancetext}>Withdraw</Text>
         </View>
-        <View style={styles.amount}>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Amount"
-            placeholderTextColor={"#fff"}
-          />
-          <TouchableOpacity style={styles.submitbtn}>
-            <Text style={styles.textbtn}>Submit</Text>
-          </TouchableOpacity>
+        <View style={styles.wrapper}>
+          <View style={styles.currentbalance}>
+            <View
+              style={[
+                styles.iconbody,
+                {
+                  backgroundColor: "rgba(221, 80, 80, 0.28)",
+                },
+              ]}
+            >
+              <Image
+                source={require("../../assets/icons/up.png")}
+                style={{ height: "50%", width: "50%" }}
+                resizeMode="contain"
+              />
+            </View>
+            <Text style={styles.balancetext}>Money out</Text>
+          </View>
+          <View style={styles.amount}>
+            <Text style={styles.amounttext}>£4000</Text>
+          </View>
         </View>
       </View>
-      <View style={styles.btnwrapper}>
-        <TouchableOpacity
-          onPress={() => props?.navigation?.navigate("Bankdetails")}
-          style={styles.bankdetailsbtn}
-        >
-          <Text style={styles.btntext}>My Bank Details</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => props?.navigation?.navigate("Balancehistory")}
-          style={styles.Balancehistory}
-        >
-          <Text style={styles.btntext}>Balance History</Text>
-        </TouchableOpacity>
-      </View>
+
       <View style={styles.moneyinputwrapper}>
         <TouchableOpacity
           onPress={() => {
@@ -122,7 +104,7 @@ const Balance = (props) => {
         </TouchableOpacity>
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {[1, 1, 1, 1]?.map((item, index) => {
+        {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]?.map((item, index) => {
           return (
             <View key={index} style={styles.transactionswrapper}>
               <View style={styles.imagebody}></View>
@@ -145,4 +127,4 @@ const Balance = (props) => {
 const mapStateToProps = (state) => ({
   errors: state.errors.errors,
 });
-export default connect(mapStateToProps, {})(Balance);
+export default connect(mapStateToProps, {})(Balancehistory);

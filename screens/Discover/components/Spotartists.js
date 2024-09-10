@@ -20,11 +20,11 @@ const Spotartist = (props) => {
   let styles = _styles({ width, height });
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <View style={styles.picturebody}></View>
       <Text style={styles.titletext}>{title}</Text>
       <Text style={styles.professiontext}>{profession}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

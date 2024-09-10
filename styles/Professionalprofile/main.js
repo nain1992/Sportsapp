@@ -79,6 +79,13 @@ export const styles = ({ width, height }) =>
       backgroundColor: "#DBE2EF",
       marginVertical: 4,
     },
+    videobody: {
+      height: getPercent(20, height),
+      width: getPercent(90, width),
+      borderRadius: 10,
+      backgroundColor: "#DBE2EF",
+      marginVertical: 4,
+    },
     fanwrapper: {
       flexDirection: "row",
       alignItems: "center",
@@ -99,6 +106,7 @@ export const styles = ({ width, height }) =>
       fontSize: rf(15),
       color: "#33383B",
     },
+
     editprofilebtn: {
       height: getPercent(4, height),
       width: getPercent(30, width),

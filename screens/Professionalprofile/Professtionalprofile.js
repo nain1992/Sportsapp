@@ -3,17 +3,13 @@ import {
   View,
   useWindowDimensions,
   TouchableOpacity,
-  Image,
   ScrollView,
-  TextInput,
 } from "react-native";
 import { connect } from "react-redux";
 import { styles as _styles } from "../../styles/Professionalprofile/main";
 import { useState } from "react";
-import { AntDesign } from "@expo/vector-icons";
 import Homeheader from "../../globalComponents/Homeheader";
 import Tabmenu from "../../globalComponents/Tabmenu";
-import StandardButton from "../../globalComponents/StandardButton";
 import Supportbtn from "./components/Supportbtn";
 
 const Professionalprofile = (props) => {
@@ -21,11 +17,42 @@ const Professionalprofile = (props) => {
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
 
-  const [isselected, setIsselected] = useState(0);
+  const [isselected, setIsselected] = useState("Photos");
   let options = ["Photos", "Videos", "Tags"];
 
-  const handleselection = (item, index) => {
+  const handleselection = (item) => {
     setIsselected(item);
+  };
+
+  const renderContent = () => {
+    switch (isselected) {
+      case "Photos":
+        return (
+          <View style={styles.postswrapper}>
+            {[1, 2, 3, 4, 5]?.map((item, index) => (
+              <View key={index} style={styles.postbody}></View>
+            ))}
+          </View>
+        );
+      case "Videos":
+        return (
+          <View style={styles.postswrapper}>
+            {[1, 2, 3, 4, 5]?.map((item, index) => (
+              <View key={index} style={styles.videobody}></View>
+            ))}
+          </View>
+        );
+      case "Tags":
+        return (
+          <View style={styles.postswrapper}>
+            {[1, 2, 3, 4, 5]?.map((item, index) => (
+              <View key={index} style={styles.postbody}></View>
+            ))}
+          </View>
+        );
+      default:
+        return null;
+    }
   };
 
   return (
@@ -66,50 +93,44 @@ const Professionalprofile = (props) => {
           <Text style={styles.fantext}>London</Text>
           <Text style={styles.fantext}>https://Fletch.skinner</Text>
         </View>
+
         <Supportbtn
           onSuportPress={() => props?.navigation?.navigate("Supporter")}
         />
+
         <Text style={styles.bundles}>Following Bundles</Text>
         <View style={styles.supportdiscountwrapper}>
-          {[1, 1]?.map((item, index) => {
-            return (
-              <View key={index} style={styles.discountcardbody}>
-                <Text style={styles.percent}>5% off</Text>
-                <Text style={styles.price}>£24.90</Text>
-                <Text style={styles.months}>for 3 months</Text>
-                <TouchableOpacity style={styles.editprofilebtn}>
-                  <Text style={styles.edittext}>SUPPORT</Text>
-                </TouchableOpacity>
-              </View>
-            );
-          })}
-        </View>
-        <View style={styles.photoswrapper}>
-          {options?.map((item, index) => {
-            return (
-              <TouchableOpacity
-                onPress={() => handleselection(item)}
-                key={index}
-              >
-                <Text
-                  style={[
-                    styles.textphotos,
-                    {
-                      color: isselected === item ? "#1B3434" : "#C4C4C4",
-                    },
-                  ]}
-                >
-                  {item}
-                </Text>
+          {[1, 2]?.map((item, index) => (
+            <View key={index} style={styles.discountcardbody}>
+              <Text style={styles.percent}>5% off</Text>
+              <Text style={styles.price}>£24.90</Text>
+              <Text style={styles.months}>for 3 months</Text>
+              <TouchableOpacity style={styles.editprofilebtn}>
+                <Text style={styles.edittext}>SUPPORT</Text>
               </TouchableOpacity>
-            );
-          })}
+            </View>
+          ))}
         </View>
-        <View style={styles.postswrapper}>
-          {[1, 1, 1, 1, 1]?.map((item, index) => {
-            return <View key={index} style={styles.postbody}></View>;
-          })}
+
+        <View style={styles.photoswrapper}>
+          {options.map((item, index) => (
+            <TouchableOpacity key={index} onPress={() => handleselection(item)}>
+              <Text
+                style={[
+                  styles.textphotos,
+                  {
+                    color: isselected === item ? "#1B3434" : "#C4C4C4",
+                  },
+                ]}
+              >
+                {item}
+              </Text>
+            </TouchableOpacity>
+          ))}
         </View>
+
+        {/* Render content based on the selected tab */}
+        {renderContent()}
       </ScrollView>
       <Tabmenu />
     </View>

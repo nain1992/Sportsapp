@@ -56,6 +56,7 @@ const Editsubscription = (props) => {
         <StandardButton
           customStyles={{ backgroundColor: "#209ED1" }}
           title={"SEND"}
+          onPress={() => props?.navigation?.navigate("Dashboard")}
         />
       </View>
     </View>

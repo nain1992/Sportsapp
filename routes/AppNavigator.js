@@ -46,6 +46,8 @@ import Guardian from "../screens/Guardian/Guardian";
 import Scedule from "../screens/Scedule/Scedule";
 import Balance from "../screens/Balance/Balance";
 import Bankdetails from "../screens/Bankdetails/Bankdetails";
+import Location from "../screens/Location/Location";
+import Balancehistory from "../screens/Balancehistory/Balancehistory";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -77,6 +79,7 @@ function AppNavigation() {
       <Screen name="Discover" component={Discover} />
       <Screen name="Professionalprofile" component={Professtionalprofile} />
       <Screen name="Myprofile" component={Myprofile} />
+
       <Screen name="Editsubscription" component={Editsubscription} />
       <Screen name="Dashboard" component={Dashboard} />
       <Screen name="Creator" component={Creator} />
@@ -97,6 +100,8 @@ function AppNavigation() {
       <Screen name="Scedule" component={Scedule} />
       <Screen name="Balance" component={Balance} />
       <Screen name="Bankdetails" component={Bankdetails} />
+      <Screen name="Location" component={Location} />
+      <Screen name="Balancehistory" component={Balancehistory} />
     </Navigator>
   );
 }

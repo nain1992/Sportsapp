@@ -13,7 +13,7 @@ import { useState } from "react";
 import { EvilIcons } from "@expo/vector-icons";
 
 const Searchresutls = (props) => {
-  let {} = props;
+  let { removed } = props;
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
 
@@ -23,14 +23,16 @@ const Searchresutls = (props) => {
         <View style={styles.picbody}></View>
         <Text style={styles.name}>Caroline Tan</Text>
       </View>
-      <View>
-        <TouchableOpacity style={styles.btn}>
-          <Text style={styles.btntext}>Add</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.remove}>
-          <Text style={styles.btntext}>Remove</Text>
-        </TouchableOpacity>
-      </View>
+      {removed ? (
+        <View>
+          <TouchableOpacity style={styles.btn}>
+            <Text style={styles.btntext}>Add</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.remove}>
+            <Text style={styles.btntext}>Remove</Text>
+          </TouchableOpacity>
+        </View>
+      ) : null}
     </View>
   );
 };

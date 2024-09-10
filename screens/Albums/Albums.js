@@ -3,14 +3,11 @@ import {
   View,
   useWindowDimensions,
   TouchableOpacity,
-  Image,
   ScrollView,
-  TextInput,
 } from "react-native";
 import { connect } from "react-redux";
 import { styles as _styles } from "../../styles/Albums/main";
 import { useState } from "react";
-import { AntDesign, Feather } from "@expo/vector-icons";
 import Homeheader from "../../globalComponents/Homeheader";
 import Tabmenu from "../../globalComponents/Tabmenu";
 
@@ -22,8 +19,59 @@ const Albums = (props) => {
 
   let options = ["Albums", "Photos", "Videos"];
 
-  const handleselection = (item, index) => {
+  const handleselection = (item) => {
     setIsselected(item);
+  };
+
+  const renderContent = () => {
+    if (isselected === "Albums") {
+      return (
+        <View style={styles.contentwrapper}>
+          {[1, 2, 3, 4, 5, 6, 7, 8]?.map((item, index) => (
+            <View key={index}>
+              <TouchableOpacity
+                onPress={() => props?.navigation?.navigate("Favouratealbum")}
+                style={styles.albumbody}
+              >
+                {/* Add album thumbnail or content here */}
+              </TouchableOpacity>
+              <Text style={styles.texttitle}>Recent</Text>
+              <Text style={styles.textquantity}>1200</Text>
+            </View>
+          ))}
+        </View>
+      );
+    } else if (isselected === "Photos") {
+      return (
+        <View style={styles.contentwrapper}>
+          {[1, 2, 3, 4, 5, 6, 7, 8]?.map((item, index) => (
+            <View key={index}>
+              <TouchableOpacity
+                onPress={() => props?.navigation?.navigate("PhotoDetail")}
+                style={styles.photobody}
+              >
+                {/* Add photo thumbnail or content here */}
+              </TouchableOpacity>
+              <Text style={styles.texttitle}>Photo Title</Text>
+            </View>
+          ))}
+        </View>
+      );
+    } else if (isselected === "Videos") {
+      return (
+        <View style={styles.contentwrapper}>
+          {[1, 2, 3, 4, 5, 6, 7, 8]?.map((item, index) => (
+            <View key={index}>
+              <TouchableOpacity
+                onPress={() => props?.navigation?.navigate("VideoDetail")}
+                style={styles.videobody}
+              ></TouchableOpacity>
+              <Text style={styles.texttitle}>Video Title</Text>
+            </View>
+          ))}
+        </View>
+      );
+    }
   };
 
   return (
@@ -34,8 +82,8 @@ const Albums = (props) => {
           {options?.map((item, index) => {
             return (
               <TouchableOpacity
-                onPress={() => handleselection(item)}
                 key={index}
+                onPress={() => handleselection(item)}
               >
                 <Text
                   style={[
@@ -51,22 +99,9 @@ const Albums = (props) => {
             );
           })}
         </View>
-        <View style={styles.contentwrapper}>
-          {[1, 1, 1, 1, 1, 1, 1, 1]?.map((item, index) => {
-            return (
-              <View key={index}>
-                <TouchableOpacity
-                  onPress={() => props?.navigation?.navigate("Favouratealbum")}
-                  style={styles.albumbody}
-                ></TouchableOpacity>
-                <Text style={styles.texttitle}>Recent</Text>
-                <Text style={styles.textquantity}>1200</Text>
-              </View>
-            );
-          })}
-        </View>
-      </ScrollView>
 
+        {renderContent()}
+      </ScrollView>
       <Tabmenu />
     </View>
   );

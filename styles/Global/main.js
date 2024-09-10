@@ -49,6 +49,8 @@ export const Homeheaderstyles = ({ width, height }) =>
       // paddingHorizontal: getPercent(5, width),
       paddingLeft: getPercent(5, width),
       alignItems: "center",
+      paddingTop:
+        Platform.OS === "ios" ? getPercent(3, height) : getPercent(0, height),
     },
 
     fixedcirclebody: {
@@ -63,6 +65,8 @@ export const Homeheaderstyles = ({ width, height }) =>
       flexDirection: "row",
       alignItems: "center",
       padding: 10,
+      paddingTop:
+        Platform.OS === "ios" ? getPercent(4, height) : getPercent(0, height),
     },
     msgiconbody: {
       height: getPercent(5, height),
@@ -202,9 +206,8 @@ export const standardButtonStyles = ({ width, height }) =>
         width: 5,
         height: 6,
       },
-      shadowOpacity: 2,
-      shadowRadius: 1,
-      elevation: 6,
+      shadowOpacity: 0.3,
+      shadowRadius: 10,
       alignItems: "center",
       justifyContent: "center",
     },

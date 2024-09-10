@@ -20,6 +20,7 @@ const Home = (props) => {
   let {} = props;
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
+  const [posteditoption, setPosteditoption] = useState(false);
 
   return (
     <View style={styles.container}>

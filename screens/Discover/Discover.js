@@ -39,7 +39,7 @@ const Discover = (props) => {
           </View>
         </View>
         <Text style={styles.upcomingtitle}>Upcoming Events</Text>
-        <View style={styles.upcomingbannerbody}>
+        <TouchableOpacity style={styles.upcomingbannerbody}>
           <ImageBackground style={styles.bannerimage}>
             <LinearGradient
               // Background Linear Gradient
@@ -61,10 +61,15 @@ const Discover = (props) => {
               <Text style={styles.locationtext}>12.30</Text>
             </View>
           </ImageBackground>
-        </View>
+        </TouchableOpacity>
         <View style={styles.seeallwrapper}>
           <Text style={styles.artisttitle}>Artists on the Spot</Text>
-          <Text style={styles.seealltext}>See all</Text>
+          <Text
+            onPress={() => alert("Coming Soon!!")}
+            style={styles.seealltext}
+          >
+            See all
+          </Text>
         </View>
 
         <View style={styles.wrapper}>
@@ -77,7 +82,12 @@ const Discover = (props) => {
         </View>
         <View style={styles.seeallwrapper}>
           <Text style={styles.artisttitle}>Events</Text>
-          <Text style={styles.seealltext}>See all</Text>
+          <Text
+            onPress={() => alert("Coming Soon!!")}
+            style={styles.seealltext}
+          >
+            See all
+          </Text>
         </View>
         <View style={styles.wrapper}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>

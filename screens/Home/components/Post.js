@@ -14,20 +14,46 @@ import { useState } from "react";
 import { FontAwesome, Entypo, FontAwesome5 } from "@expo/vector-icons";
 
 const Post = (props) => {
-  let { postcontent, name, time, likes, comments, onCommentpress, onPress } =
-    props;
+  let {
+    postcontent,
+    name,
+    time,
+    likes,
+    comments,
+    onCommentpress,
+    onPress,
+    onDeletePress,
+    onEditPress,
+  } = props;
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
+  const [posteditoption, setPosteditoption] = useState(false);
 
   return (
     <Pressable onPress={onPress} style={styles.container}>
+      {posteditoption ? (
+        <View style={styles.editbody}>
+          <Text
+            onPress={() => setPosteditoption(false)}
+            style={styles.postername}
+          >
+            Edit
+          </Text>
+          <Text
+            onPress={() => setPosteditoption(false)}
+            style={styles.postername}
+          >
+            Delete
+          </Text>
+        </View>
+      ) : null}
       <View style={styles.posternamewrapper}>
         <View style={styles.profilepicbody}></View>
         <View style={{ flex: 1, paddingLeft: 10 }}>
           <Text style={styles.postername}>{name}</Text>
           <Text style={styles.posttime}>{time}</Text>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => setPosteditoption(true)}>
           <Entypo name="dots-three-vertical" size={20} color="#C4C4C4" />
         </TouchableOpacity>
       </View>

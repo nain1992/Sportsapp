@@ -13,15 +13,9 @@ import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
 const Postnewcontent = (props) => {
-  let { image } = props;
+  let { image, onPress, OnVideoPress, onLocationPress, onMicPress } = props;
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
-  let icons = [
-    require("../../../assets/icons/18.png"),
-    require("../../../assets/icons/Video.png"),
-    require("../../../assets/icons/Location.png"),
-    require("../../../assets/icons/Voice.png"),
-  ];
 
   return (
     <View style={styles.container}>
@@ -37,17 +31,37 @@ const Postnewcontent = (props) => {
       </View>
       <View style={styles.postbtnwrapper}>
         <View style={styles.iconswrapper}>
-          {icons?.map((item, index) => {
-            return (
-              <TouchableOpacity key={index} style={styles.posticonsbody}>
-                <Image
-                  source={item}
-                  style={{ height: "50%", width: "50%" }}
-                  resizeMode="contain"
-                />
-              </TouchableOpacity>
-            );
-          })}
+          <TouchableOpacity onPress={onPress} style={styles.posticonsbody}>
+            <Image
+              source={require("../../../assets/icons/18.png")}
+              style={{ height: "50%", width: "50%" }}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={OnVideoPress} style={styles.posticonsbody}>
+            <Image
+              source={require("../../../assets/icons/Video.png")}
+              style={{ height: "50%", width: "50%" }}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={onLocationPress}
+            style={styles.posticonsbody}
+          >
+            <Image
+              source={require("../../../assets/icons/Location.png")}
+              style={{ height: "50%", width: "50%" }}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={onMicPress} style={styles.posticonsbody}>
+            <Image
+              source={require("../../../assets/icons/Voice.png")}
+              style={{ height: "50%", width: "50%" }}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
         </View>
         <TouchableOpacity style={styles.postbtnbody}>
           <LinearGradient

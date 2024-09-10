@@ -13,14 +13,13 @@ import { useState } from "react";
 import { FontAwesome } from "@expo/vector-icons";
 
 const Chatpage = (props) => {
-  let {} = props;
+  let { onIconPress } = props;
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
 
-  const [msg, setMsg] = useState();
   return (
     <View style={styles.typemsgwrapper}>
-      <TouchableOpacity style={styles.addiconsbody}>
+      <TouchableOpacity onPress={onIconPress} style={styles.addiconsbody}>
         <Image
           source={require("../assets/icons/8.png")}
           style={{ height: "90%", width: "90%" }}
