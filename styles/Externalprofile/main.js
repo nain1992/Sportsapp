@@ -86,4 +86,11 @@ export const styles = ({ width, height }) =>
       backgroundColor: "#DBE2EF",
       marginVertical: 4,
     },
+    videobody: {
+      height: getPercent(30, height),
+      width: getPercent(90, width),
+      borderRadius: 10,
+      backgroundColor: "#DBE2EF",
+      marginVertical: 4,
+    },
   });

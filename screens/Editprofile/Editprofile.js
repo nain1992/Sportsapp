@@ -50,7 +50,7 @@ const Editprofile = (props) => {
 
         <TouchableOpacity onPress={pickImage} style={styles.uploadbtn}>
           <Image
-            source={require("../../assets/icons/1.png")}
+            source={require("../../assets/icons/11.png")}
             style={{ height: "50%", width: "50%" }}
             resizeMode="contain"
           />

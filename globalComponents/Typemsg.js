@@ -1,16 +1,12 @@
 import {
-  Text,
   View,
   useWindowDimensions,
   TouchableOpacity,
   Image,
-  ScrollView,
   TextInput,
 } from "react-native";
 import { connect } from "react-redux";
 import { styles as _styles } from "../styles/Global/Typemsg";
-import { useState } from "react";
-import { FontAwesome } from "@expo/vector-icons";
 
 const Chatpage = (props) => {
   let { onIconPress } = props;

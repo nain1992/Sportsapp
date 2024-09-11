@@ -48,6 +48,9 @@ import Balance from "../screens/Balance/Balance";
 import Bankdetails from "../screens/Bankdetails/Bankdetails";
 import Location from "../screens/Location/Location";
 import Balancehistory from "../screens/Balancehistory/Balancehistory";
+import Walkthrough3 from "../screens/Walkthrough/Walkthrough3";
+import Forgotpassword2 from "../screens/Forgotpassword/Forgotpassword2";
+import Resetpassword from "../screens/Resetpassword/Resetpassword";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -56,11 +59,14 @@ function AppNavigation() {
     <Navigator screenOptions={{ headerShown: false, animationEnabled: false }}>
       <Screen name="Walkthrough" component={Walkthrough} />
       <Screen name="Walkthrough2" component={Walkthrough2} />
+      <Screen name="Walkthrough3" component={Walkthrough3} />
       <Screen name="Login" component={Login} />
       <Screen name="Register" component={Register} />
       <Screen name="Phoneverification" component={Phoneverification} />
       <Screen name="Sportsselection" component={Sportsselection} />
       <Screen name="Forgotpassword" component={Forgotpassword} />
+      <Screen name="Forgotpassword2" component={Forgotpassword2} />
+      <Screen name="Resetpassword" component={Resetpassword} />
       <Screen name="Addsocialmedia" component={Addsocialmedia} />
       <Screen name="Parentsdetail" component={Parentsdetail} />
       <Screen name="Completeprofile" component={Completeprofile} />

@@ -3,17 +3,16 @@ import {
   View,
   useWindowDimensions,
   TouchableOpacity,
-  Image,
   ScrollView,
-  TextInput,
 } from "react-native";
 import { connect } from "react-redux";
 import { styles as _styles } from "../../styles/Myfollowers/main";
 import { useState } from "react";
-import { EvilIcons } from "@expo/vector-icons";
 import Searchheader from "../../globalComponents/Searchheader";
 import Searchresults from "./component/Searchresults";
 import Tabmenu from "../../globalComponents/Tabmenu";
+import Following from "./component/Following";
+import Donar from "./component/Donar";
 
 const Myfollowers = (props) => {
   let {} = props;
@@ -21,12 +20,25 @@ const Myfollowers = (props) => {
   let styles = _styles({ width, height });
 
   const [search, setSearch] = useState("");
-  const [followers, setFollowers] = useState("");
-  const Handlefollowers = (item) => {
-    if (followers !== item) {
-      setFollowers(item);
+  const [activeTab, setActiveTab] = useState("Followers");
+
+  const handleTabPress = (tab) => {
+    setActiveTab(tab);
+  };
+
+  const renderActiveComponent = () => {
+    switch (activeTab) {
+      case "Followers":
+        return <Searchresults />;
+      case "Following":
+        return <Following />;
+      case "Donors":
+        return <Donar />;
+      default:
+        return null;
     }
   };
+
   return (
     <View style={styles.container}>
       <Searchheader
@@ -40,16 +52,16 @@ const Myfollowers = (props) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <Text style={styles.filtertext}>Filter</Text>
         <View style={styles.filteroptinswrapper}>
-          {["Followers", "Following", "Donars"]?.map((item, index) => {
+          {["Followers", "Following", "Donors"]?.map((item, index) => {
             return (
               <TouchableOpacity
                 key={index}
-                onPress={() => Handlefollowers(item)}
+                onPress={() => handleTabPress(item)}
                 style={[
                   styles.filteroptionbody,
                   {
                     borderBottomColor:
-                      followers === item ? "#535353" : "transparent",
+                      activeTab === item ? "#535353" : "transparent",
                   },
                 ]}
               >
@@ -58,9 +70,8 @@ const Myfollowers = (props) => {
             );
           })}
         </View>
-        {[1, 1, 11]?.map((item, index) => {
-          return <Searchresults key={index} />;
-        })}
+
+        {renderActiveComponent()}
       </ScrollView>
       <Tabmenu />
     </View>

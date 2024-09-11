@@ -5,6 +5,10 @@ import { getPercent } from "../../middleware";
 //Styles Styles starts here
 export const styles = ({ width, height }) =>
   StyleSheet.create({
+    safeArea: {
+      flex: 1,
+      backgroundColor: "#fff",
+    },
     container: {
       flex: 1,
       backgroundColor: "#fff",

@@ -1,16 +1,7 @@
-import {
-  Text,
-  View,
-  useWindowDimensions,
-  TouchableOpacity,
-  Image,
-  ScrollView,
-  TextInput,
-} from "react-native";
+import { View, useWindowDimensions, ScrollView } from "react-native";
 import { connect } from "react-redux";
 import { styles as _styles } from "../../styles/Createnewpost/main";
 import { useState, useRef } from "react";
-import { EvilIcons } from "@expo/vector-icons";
 import Newpostheader from "../../globalComponents/Newpostheader";
 import Postnewcontent from "./components/Postnewcontent";
 import Tabmenu from "../../globalComponents/Tabmenu";
@@ -29,7 +20,6 @@ const Createnewpost = (props) => {
   const [recording, setRecording] = useState(null);
   const [audioUri, setAudioUri] = useState(null);
 
-  // Function to pick an image
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Photos,
@@ -43,7 +33,6 @@ const Createnewpost = (props) => {
     }
   };
 
-  // Function to pick a video
   const Pickvideo = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Videos,
@@ -57,7 +46,6 @@ const Createnewpost = (props) => {
     }
   };
 
-  // Function to start recording audio
   const startRecording = async () => {
     try {
       const permission = await Audio.requestPermissionsAsync();
@@ -79,7 +67,6 @@ const Createnewpost = (props) => {
     }
   };
 
-  // Function to stop recording audio
   const stopRecording = async () => {
     console.log("audio");
     setRecording(null);

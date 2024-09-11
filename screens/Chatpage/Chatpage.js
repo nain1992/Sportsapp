@@ -55,7 +55,7 @@ const Chatpage = (props) => {
           msgincoming={"I hope we will be friends forever, friends of life"}
         />
         <Outgoing msgoutgoing={"Sure, Thank you"} />
-        <Outgoing image={require("../../assets/icons/15.png")} audio />
+        <Outgoing audio />
       </ScrollView>
 
       <Typemsg

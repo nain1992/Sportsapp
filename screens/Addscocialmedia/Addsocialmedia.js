@@ -1,14 +1,6 @@
-import {
-  Text,
-  View,
-  useWindowDimensions,
-  TouchableOpacity,
-  TextInput,
-} from "react-native";
+import { Text, View, useWindowDimensions, TextInput } from "react-native";
 import { connect } from "react-redux";
 import { styles as _styles } from "../../styles/Addsocialmedia/main";
-import { useState } from "react";
-import { EvilIcons } from "@expo/vector-icons";
 import StandardButton from "../../globalComponents/StandardButton";
 import Header from "../../globalComponents/Header";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";

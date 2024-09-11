@@ -24,6 +24,7 @@ const Tabmenu = (props) => {
     { icon: require("../assets/icons/9.png"), screen: "Notifications" },
     { icon: require("../assets/icons/10.png"), screen: "Userprofile" },
     // { icon: require("../assets/icons/10.png"), screen: "Professionalprofile" },
+    // { icon: require("../assets/icons/10.png"), screen: "Externalprofile" },
   ];
 
   const handlePress = (screen) => {

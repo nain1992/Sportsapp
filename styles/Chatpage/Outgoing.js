@@ -32,6 +32,7 @@ export const styles = ({ width, height }) =>
       fontFamily: "Regular",
       fontSize: rf(12),
       color: "#fff",
+      marginLeft: 10,
     },
     audioiconbody: {
       height: getPercent(8, height),
@@ -47,5 +48,10 @@ export const styles = ({ width, height }) =>
       backgroundColor: "#F99F42",
       padding: 8,
       borderRadius: 10,
+    },
+    audiocontainer: {
+      flexDirection: "row",
+      alignItems: "center",
+      padding: 10,
     },
   });

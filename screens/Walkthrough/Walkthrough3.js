@@ -10,20 +10,13 @@ import { connect } from "react-redux";
 import { styles as _styles } from "../../styles/Walkthrough2/main";
 import StandardButton from "../../globalComponents/StandardButton";
 
-const Walkthrough2 = (props) => {
+const Walkthrough3 = (props) => {
   let {} = props;
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
 
   return (
     <View style={styles.container}>
-      <View style={styles.Imagewrapper}>
-        <Image
-          source={require("../../assets/images/1.png")}
-          style={{ height: "100%", width: "100%" }}
-          resizeMode="contain"
-        />
-      </View>
       <View style={styles.textwrapper}>
         <Text style={styles.labletext}>
           Find friends all over the world{"\n"}
@@ -34,9 +27,16 @@ const Walkthrough2 = (props) => {
       </View>
       <View style={styles.btnwrapper}>
         <StandardButton
-          onPress={() => props?.navigation?.navigate("Walkthrough3")}
+          onPress={() => props?.navigation?.navigate("Login")}
           customStyles={{ borderRadius: 100 }}
           title={"Get Started"}
+        />
+      </View>
+      <View style={styles.Imagewrapper}>
+        <Image
+          source={require("../../assets/images/1.png")}
+          style={{ height: "100%", width: "100%" }}
+          resizeMode="contain"
         />
       </View>
     </View>
@@ -46,4 +46,4 @@ const Walkthrough2 = (props) => {
 const mapStateToProps = (state) => ({
   errors: state.errors.errors,
 });
-export default connect(mapStateToProps, {})(Walkthrough2);
+export default connect(mapStateToProps, {})(Walkthrough3);

@@ -3,11 +3,14 @@ import {
   View,
   useWindowDimensions,
   TouchableOpacity,
+  Image,
+  ScrollView,
+  TextInput,
 } from "react-native";
 import { connect } from "react-redux";
 import { styles as _styles } from "../../../styles/Search/Searchresults";
 
-const Searchresutls = (props) => {
+const Donar = (props) => {
   let {} = props;
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
@@ -19,7 +22,7 @@ const Searchresutls = (props) => {
         <Text style={styles.name}>Caroline Tan</Text>
       </View>
       <TouchableOpacity style={styles.btn}>
-        <Text style={styles.btntext}>Following</Text>
+        <Text style={styles.btntext}>Donar</Text>
       </TouchableOpacity>
     </View>
   );
@@ -28,4 +31,4 @@ const Searchresutls = (props) => {
 const mapStateToProps = (state) => ({
   errors: state.errors.errors,
 });
-export default connect(mapStateToProps, {})(Searchresutls);
+export default connect(mapStateToProps, {})(Donar);

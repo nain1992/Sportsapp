@@ -22,10 +22,18 @@ const Externalprofile = (props) => {
   let styles = _styles({ width, height });
 
   const [isselected, setIsselected] = useState(0);
+  const [isvideovisible, setisVideovisible] = useState(true);
+
   let options = ["Photos", "Videos", "Tags"];
 
   const handleselection = (item, index) => {
+    console.log(item);
     setIsselected(item);
+    if (item != "Videos") {
+      setisVideovisible(true);
+    } else {
+      setisVideovisible(false);
+    }
   };
 
   return (
@@ -99,11 +107,19 @@ const Externalprofile = (props) => {
             );
           })}
         </View>
-        <View style={styles.postswrapper}>
-          {[1, 1, 1, 1, 1]?.map((item, index) => {
-            return <View key={index} style={styles.postbody}></View>;
-          })}
-        </View>
+        {isvideovisible ? (
+          <View style={styles.postswrapper}>
+            {[1, 1, 1, 1, 1]?.map((item, index) => {
+              return <View key={index} style={styles.postbody}></View>;
+            })}
+          </View>
+        ) : (
+          <View style={styles.postswrapper}>
+            {[1, 1, 1, 1, 1]?.map((item, index) => {
+              return <View key={index} style={styles.videobody}></View>;
+            })}
+          </View>
+        )}
       </ScrollView>
       <Tabmenu />
     </View>

@@ -11,12 +11,14 @@ export const styles = ({ width, height }) =>
     },
 
     Imagewrapper: {
-      height: getPercent(60, height),
+      height: getPercent(40, height),
       width: getPercent(100, width),
       overflow: "hidden",
       justifyContent: "flex-end",
     },
     textwrapper: {
+      height: getPercent(30, height),
+      justifyContent: "center",
       alignItems: "center",
       paddingHorizontal: getPercent(5, width),
     },
@@ -34,7 +36,7 @@ export const styles = ({ width, height }) =>
     },
     btnwrapper: {
       alignItems: "center",
-      flex: 1,
+      flex: 0.7,
       justifyContent: "flex-end",
       marginBottom: getPercent(4, height),
     },

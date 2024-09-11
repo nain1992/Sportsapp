@@ -3,14 +3,11 @@ import {
   View,
   useWindowDimensions,
   TouchableOpacity,
-  Image,
   ScrollView,
-  TextInput,
 } from "react-native";
 import { connect } from "react-redux";
 import { styles as _styles } from "../../styles/Search/main";
 import { useState } from "react";
-import { EvilIcons } from "@expo/vector-icons";
 import Searchheader from "../../globalComponents/Searchheader";
 import Searchresults from "./component/Searchresults";
 import Tabmenu from "../../globalComponents/Tabmenu";
@@ -21,12 +18,42 @@ const Search = (props) => {
   let styles = _styles({ width, height });
 
   const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState("ALL");
-  const HandleFilter = (item) => {
-    if (filter !== item) {
-      setFilter(item);
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  const handleFilterPress = (filter) => {
+    setActiveFilter(filter);
+  };
+  const renderFilteredView = () => {
+    switch (activeFilter) {
+      case "All":
+        return (
+          <View style={styles.contentWrapper}>
+            {[1, 2, 3, 4].map((item, index) => (
+              <Searchresults key={index} />
+            ))}
+          </View>
+        );
+      case "Football":
+        return (
+          <View style={styles.contentWrapper}>
+            {[5, 6, 7, 8, 9].map((item, index) => (
+              <Searchresults key={index} />
+            ))}
+          </View>
+        );
+      case "Boxing":
+        return (
+          <View style={styles.contentWrapper}>
+            {[8, 9, 10].map((item, index) => (
+              <Searchresults key={index} />
+            ))}
+          </View>
+        );
+      default:
+        return null;
     }
   };
+
   return (
     <View style={styles.container}>
       <Searchheader
@@ -37,18 +64,20 @@ const Search = (props) => {
         placeholderTextColor={"#656565"}
         navigation={props?.navigation}
       />
+
       <ScrollView showsVerticalScrollIndicator={false}>
         <Text style={styles.filtertext}>Filter</Text>
         <View style={styles.filteroptinswrapper}>
-          {["All", "Football", "Boxing"]?.map((item, index) => {
+          {["All", "Football", "Boxing"].map((item, index) => {
             return (
               <TouchableOpacity
                 key={index}
-                onPress={() => HandleFilter(item)}
+                onPress={() => handleFilterPress(item)}
                 style={[
                   styles.filteroptionbody,
                   {
-                    backgroundColor: filter === item ? "#3F72AF" : "#808080",
+                    backgroundColor:
+                      activeFilter === item ? "#3F72AF" : "#808080",
                   },
                 ]}
               >
@@ -57,10 +86,10 @@ const Search = (props) => {
             );
           })}
         </View>
-        {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]?.map((item, index) => {
-          return <Searchresults key={index} />;
-        })}
+
+        {renderFilteredView()}
       </ScrollView>
+
       <Tabmenu />
     </View>
   );
