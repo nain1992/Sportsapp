@@ -14,7 +14,7 @@ import { RFValue as rf } from "react-native-responsive-fontsize";
 import { useState } from "react";
 
 const Supportbtn = (props) => {
-  let {} = props;
+  let { title, onPress, btncolor } = props;
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
 
@@ -35,8 +35,18 @@ const Supportbtn = (props) => {
         </Text>
       </View>
 
-      <TouchableOpacity style={styles.suportbody}>
-        <Text style={styles.edittext}>Subscribe</Text>
+      <TouchableOpacity
+        onPress={onPress}
+        style={[
+          styles.suportbody,
+          {
+            backgroundColor: btncolor
+              ? "rgba(255, 153, 0, 1)"
+              : "rgba(63, 114, 175, 1)",
+          },
+        ]}
+      >
+        <Text style={styles.edittext}>{title}</Text>
       </TouchableOpacity>
     </View>
   );

@@ -60,7 +60,7 @@ const Myprofile = (props) => {
           <Text style={styles.fantext}>London</Text>
           <Text style={styles.fantext}>https://Fletch.skinner</Text>
         </View>
-        <Supportbtn />
+        <Supportbtn title={"Subscribe"} />
         <Text style={styles.bundles}>Following Bundles</Text>
         <View style={styles.supportdiscountwrapper}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>

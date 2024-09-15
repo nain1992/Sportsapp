@@ -102,11 +102,13 @@ export const styles = ({ width, height }) =>
       color: "#33383B",
     },
     analyseswrapper: {
-      height: getPercent(40, height),
-      width: getPercent(90, width),
-      alignSelf: "center",
-      overflow: "hidden",
-      marginVertical: 6,
+      // height: getPercent(40, height),
+      // width: getPercent(90, width),
+      // alignSelf: "center",
+      // overflow: "hidden",
+      // marginVertical: 6,
+      // marginHorizontal: 10,
+      marginVertical: 20,
     },
     engagementboxwrapper: {
       flexDirection: "row",

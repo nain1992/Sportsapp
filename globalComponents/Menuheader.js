@@ -17,7 +17,7 @@ const Menuheader = (props) => {
     <View style={styles.container}>
       <View style={styles.fixedcirclebody}>
         <TouchableOpacity
-          //   onPress={() => props?.navigation?.navigate("Chatlist")}
+          onPress={() => props?.navigation?.navigate("Chatlist")}
           style={styles.msgiconbody}
         >
           <Image

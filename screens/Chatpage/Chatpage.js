@@ -49,8 +49,14 @@ const Chatpage = (props) => {
       <Homeheader title={"Bobby Clay"} navigation={props?.navigation} />
 
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Incoming msgincoming={"Thank you for accepting me as a friend"} />
-        <Outgoing msgoutgoing={"Yes anet with pleasure and i am also happy"} />
+        <Incoming
+          onPress={() => props?.navigation?.navigate("Externalprofile")}
+          msgincoming={"Thank you for accepting me as a friend"}
+        />
+        <Outgoing
+          onPress={() => props?.navigation?.navigate("Externalprofile")}
+          msgoutgoing={"Yes anet with pleasure and i am also happy"}
+        />
         <Incoming
           msgincoming={"I hope we will be friends forever, friends of life"}
         />

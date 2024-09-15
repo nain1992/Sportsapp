@@ -23,7 +23,7 @@ const Header = (props) => {
         >
           <Text style={styles.headertitle}>{title}</Text>
         </View>
-        <TouchableOpacity onPress={() => props?.navigation?.goBack()}>
+        <TouchableOpacity>
           <MaterialCommunityIcons
             name="dots-vertical"
             size={18}

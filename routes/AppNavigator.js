@@ -51,6 +51,7 @@ import Balancehistory from "../screens/Balancehistory/Balancehistory";
 import Walkthrough3 from "../screens/Walkthrough/Walkthrough3";
 import Forgotpassword2 from "../screens/Forgotpassword/Forgotpassword2";
 import Resetpassword from "../screens/Resetpassword/Resetpassword";
+import Supportpage from "../screens/Supportpage/Supportpage";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -85,6 +86,7 @@ function AppNavigation() {
       <Screen name="Discover" component={Discover} />
       <Screen name="Professionalprofile" component={Professtionalprofile} />
       <Screen name="Myprofile" component={Myprofile} />
+      <Screen name="Supportpage" component={Supportpage} />
 
       <Screen name="Editsubscription" component={Editsubscription} />
       <Screen name="Dashboard" component={Dashboard} />

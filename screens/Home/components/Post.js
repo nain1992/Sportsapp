@@ -24,6 +24,7 @@ const Post = (props) => {
     onPress,
     onDeletePress,
     onEditPress,
+    onPicPress,
   } = props;
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
@@ -48,7 +49,10 @@ const Post = (props) => {
         </View>
       ) : null}
       <View style={styles.posternamewrapper}>
-        <View style={styles.profilepicbody}></View>
+        <TouchableOpacity
+          onPress={onPicPress}
+          style={styles.profilepicbody}
+        ></TouchableOpacity>
         <View style={{ flex: 1, paddingLeft: 10 }}>
           <Text style={styles.postername}>{name}</Text>
           <Text style={styles.posttime}>{time}</Text>

@@ -56,6 +56,9 @@ const Home = (props) => {
                 comments={"125 Comments"}
                 onCommentpress={() => props?.navigation?.navigate("Comments")}
                 onPress={() => props?.navigation?.navigate("Postfullscreen")}
+                onPicPress={() =>
+                  props?.navigation?.navigate("Externalprofile")
+                }
               />
             );
           })}

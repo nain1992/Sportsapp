@@ -40,8 +40,11 @@ const Menu = (props) => {
 
   return (
     <View style={styles.container}>
-      {/* <Homeheader title={"Menu"} navigation={props?.navigation} /> */}
-      <Menuheader title={"Menu"} onPress={() => props?.navigation?.goBack()} />
+      <Menuheader
+        title={"Menu"}
+        navigation={props?.navigation}
+        onPress={() => props?.navigation?.goBack()}
+      />
       <ScrollView
         style={{ marginBottom: getPercent(10, height) }}
         showsVerticalScrollIndicator={false}

@@ -15,6 +15,7 @@ import Homeheader from "../../globalComponents/Homeheader";
 import Tabmenu from "../../globalComponents/Tabmenu";
 import StandardButton from "../../globalComponents/StandardButton";
 import Postandfollowers from "./components/Postandfollowers";
+import Supportbtn from "../Myprofile/components/Supportbtn";
 
 const Externalprofile = (props) => {
   let {} = props;
@@ -38,7 +39,7 @@ const Externalprofile = (props) => {
 
   return (
     <View style={styles.container}>
-      <Homeheader title={"Profile"} />
+      <Homeheader title={"Profile"} navigation={props?.navigation} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.profilewrapper}>
           <View style={styles.profilepicbody}></View>
@@ -55,6 +56,7 @@ const Externalprofile = (props) => {
             <Text style={styles.btntext}>Follow</Text>
           </TouchableOpacity>
           <TouchableOpacity
+            onPress={() => props?.navigation?.navigate("Supportpage")}
             style={[
               styles.btnbody,
               {
@@ -66,6 +68,7 @@ const Externalprofile = (props) => {
             <Text style={styles.btntext}>Donate</Text>
           </TouchableOpacity>
           <TouchableOpacity
+            onPress={() => props?.navigation?.navigate("Chatpage")}
             style={[
               styles.btnbody,
               {
@@ -86,6 +89,11 @@ const Externalprofile = (props) => {
             </Text>
           </TouchableOpacity>
         </View>
+        <Supportbtn
+          title={"Support"}
+          btncolor
+          onPress={() => props?.navigation?.navigate("Supportpage")}
+        />
         <View style={styles.photoswrapper}>
           {options?.map((item, index) => {
             return (
